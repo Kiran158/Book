@@ -1,0 +1,75 @@
+{% extends "front.html" %}  
+{% block content %}
+<style>	  
+	#id_author{
+	display: block;
+	margin-top: -37px;
+	margin-left: 262px;
+	width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+	}
+	#id_status{
+		display: block;
+		margin-top: -37px;
+		margin-left: 262px;
+		width: 100%;
+		padding: .375rem .75rem;
+		font-size: 1rem;
+		line-height: 1.5;
+		color: #495057;
+		background-color: #fff;
+		background-clip: padding-box;
+		border: 1px solid #ced4da;
+		border-radius: .25rem;
+		transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+		}
+</style>
+<body>
+	<div class="container px-5 mt-3 text-center " >
+		<div class"card shadow-lg p-3 mb-5 bg-body-tertiary rounded ">
+			<h3 class="bg-primary text-white card-header ">Update your post</h3>
+			<div class="card-body">	
+		  		<form method="post" class="post-form">  
+				  {% csrf_token %}  
+
+			<div class="input-group float-left card-body">
+			  <span class="input-group-text w-25" id="basic-addon1">Book Name:</span>
+			  <input type="text" class="form-control w-25 ml-4 align-center" placeholder="Book name" name="book" id="book" value="{{ book }}" aria-describedby="basic-addon1">
+			</div>
+
+			<div class="input-group card-body">
+			  <span class="input-group-text w-25 " id="basic-addon1">Content:</span>
+			  <input type="text" class="form-control w-25 ml-4" placeholder="Content" name="content" id="content" value="{{ content }}" aria-describedby="basic-addon1">
+			</div>
+
+			{% comment %} <div class="input-group card-body">
+			  <span class="input-group-text w-25 " id="basic-addon1">Status:</span>
+              <input type="text" class="form-control w-25 ml-4" placeholder="Enter 1 for publidh and 0 for draft" name="status" id="status" value="{{ status }}" aria-describedby="basic-addon1">
+            </div> {% endcomment %}
+			<div class="input-group card-body ">
+				<span class="input-group-text w-25 " id="basic-addon1">Status:</span>
+				{{ form.status }}  
+			</div>	
+
+			<div class="input-group card-body ">
+				<span class="input-group-text w-25 " id="basic-addon1">Author:</span>
+				{{ form.author }}  
+			</div>	
+
+			<button type="submit" class="btn btn-primary mt-5 w-25">Save</button>   
+			
+			</form>
+		</div>
+	  </div>
+	</div>
+</body>
+
+{% endblock content%} 
